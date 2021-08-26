@@ -6,7 +6,7 @@ const Rating = ({ value, text, color }) => {
         <div className='rating'>
             {
                 [1, 2, 3, 4, 5].map((i) => (
-                    <span>
+                    <span >
                         <i style={{ color }}
                             className={
                                 value >= i
