@@ -1,0 +1,14 @@
+{
+  "name": "snacktown",
+  "version": "1.0.0",
+  "description": "MERN stack website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "author": "Rufus",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
