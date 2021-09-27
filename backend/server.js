@@ -4,6 +4,7 @@ import path from 'path'
 import colors from 'colors'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import connectDb from './config/db.js'
+import morgan from 'morgan'
 import productRoutes from './routes/productRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
@@ -13,6 +14,9 @@ const app = express()
 app.use(express.json())
 dotenv.config()
 connectDb()
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev'))
+}
 
 app.get('/', (req, res) => {
     res.send("WWE")
