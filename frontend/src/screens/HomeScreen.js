@@ -4,6 +4,7 @@ import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
+import Meta from '../components/Meta'
 import Paginate from '../components/Paginate'
 import { listProducts } from '../actions/productActions'
 import ProductCarousel from '../components/ProductCarousel'
@@ -25,6 +26,7 @@ const HomeScreen = ({ match }) => {
 
     return (
         <>
+            <Meta />
             {!keyword ? (
                 <ProductCarousel />
             ) : (
