@@ -1,6 +1,7 @@
 import path from 'path'
 import express from 'express'
 import multer from 'multer'
+import { uploadFile } from '../s3.js'
 const router = express.Router()
 
 const storage = multer.diskStorage({
@@ -35,6 +36,8 @@ const upload = multer({
 })
 
 router.post('/', upload.single('image'), (req, res) => {
+    const file = req.file
+    console.log(file)
     res.send(`/${req.file.path}`)
 })
 
