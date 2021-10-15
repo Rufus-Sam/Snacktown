@@ -2,6 +2,10 @@ import path from 'path'
 import express from 'express'
 import multer from 'multer'
 import { uploadFile } from '../s3.js'
+import * as fs from 'fs'
+import * as util from 'util'
+
+const unlinkFile = util.promisify(fs.unlink)
 const router = express.Router()
 
 const storage = multer.diskStorage({
@@ -35,10 +39,13 @@ const upload = multer({
     },
 })
 
-router.post('/', upload.single('image'), (req, res) => {
+router.post('/', upload.single('image'), async (req, res) => {
     const file = req.file
     console.log(file)
-    res.send(`/${req.file.path}`)
+    const result = await uploadFile(file)
+    await unlinkFile(file.path)
+    console.log(result)
+    res.send(`${result.Location}`)
 })
 
 export default router
