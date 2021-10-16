@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler'
 import Product from '../models/productModel.js'
+import { deleteFile } from '../s3.js'
 
 // @desc    Fetch all products
 // @route   GET /api/products
@@ -45,7 +46,11 @@ const deleteProduct = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id)
 
     if (product) {
+        const url = product.image
+        const key = url.slice(47,)
+        console.log(key)
         await product.remove()
+        await deleteFile(key)
         res.json({ message: 'Product removed' })
     } else {
         res.status(404)

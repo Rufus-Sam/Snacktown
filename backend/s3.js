@@ -28,10 +28,10 @@ export const uploadFile = (file) => {
     return s3.upload(uploadParams).promise()
 }
 //get from s3
-export const getFileStream = (fileKey) => {
-    const downloadParams = {
+export const deleteFile = (fileKey) => {
+    const deleteParams = {
         Key: fileKey,
         Bucket: bucket
     }
-    return s3.getObject(downloadParams).createReadStream()
+    return s3.deleteObject(deleteParams).promise()
 }
