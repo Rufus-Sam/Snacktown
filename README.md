@@ -15,6 +15,7 @@ Backend dependencies:
     "multer": "^1.4.3"
     
 Frontend dependencies:
+    "aws-sdk": "^2.1008.0",
     "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
@@ -33,4 +34,4 @@ Uncommon Features :
 - Used paypal sandbox for payments
 - Admin Usage
 - Pagination
-
+- Getting the images from s3 bucket
