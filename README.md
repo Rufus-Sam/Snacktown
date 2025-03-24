@@ -2,8 +2,6 @@
 ![image](https://user-images.githubusercontent.com/68532159/181035300-cae26876-7736-469b-bc54-85841f7c3d57.png)
 
 Website built using complete MERN stack.
-Hosted in the link below
-https://snacktown.herokuapp.com/
 
 Backend dependencies:
     "bcryptjs": "^2.4.3",
